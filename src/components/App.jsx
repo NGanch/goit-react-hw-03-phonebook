@@ -1,8 +1,8 @@
 import React from 'react';
-import css from './App.module.css';
 import { ContactForm } from './component_form/Form';
 import { ContactList } from './component_ContactList/ContactList';
 import { Filter } from './component_filter/Filter';
+import {Section, TitlePhonebook, ContactContainer, TitleContact} from './App.styled';
 
 // import { nanoid } from "nanoid";
 
@@ -78,22 +78,23 @@ export class App extends React.Component {
     //   contact.name.toLowerCase().includes(normalizedFilter));
 
     return (
-      <section className={css.section}>
-        <h1 className={css.title_phonebook}>Phonebook</h1>
-        <ContactForm
-          onSubmit={this.formSubmitHandler}
-          onAlert={this.alertContact}
+      <Section>
+      <TitlePhonebook>Phonebook</TitlePhonebook>
+      <ContactForm
+        onSubmit={this.formSubmitHandler}
+        onAlert={this.alertContact}
+      />
+      
+      <ContactContainer>
+        <TitleContact>Contact</TitleContact>
+        <Filter value={filter} onChange={this.changeFilter} />
+        <ContactList
+          contacts={filterContants}
+          onDeleteContact={this.deleteContact}
         />
-
-        <div className={css.contact_container}>
-          <h2 className={css.title_contact}>Contact</h2>
-          <Filter value={filter} onChange={this.changeFilter} />
-          <ContactList
-            contacts={filterContants}
-            onDeleteContact={this.deleteContact}
-          />
-        </div>
-      </section>
+      </ContactContainer>
+      </Section> 
     );
   }
 }
+

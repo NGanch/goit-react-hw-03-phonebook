@@ -1,14 +1,14 @@
-import css from '../component_filter/Filter.module.css';
+
+import { FilterLabel, FilterInput } from '../component_filter/Filter.styled';
 export const Filter = ({ value, onChange }) => {
   return (
-    <label className={css.filter_label}>
+    <FilterLabel>
       Find contacts by name
-      <input
+      <FilterInput
         type="text"
-        className={css.filter_input}
         value={value}
         onChange={onChange}
       />
-    </label>
+    </FilterLabel>
   );
 };

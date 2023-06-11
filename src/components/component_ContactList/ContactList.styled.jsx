@@ -1,12 +1,5 @@
-ul {
-    margin: 0;
-    padding: 0;
-}
-button{
-    padding: 0;
-    margin: 0;
-}
-.list_contacts {
+import styled from "@emotion/styled";
+export const ContactsList = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -15,26 +8,23 @@ button{
     justify-content: center;
     align-items: center;
     padding-bottom: 50px;
-}
-.item_contacts {
+`;
+export const ContactsItem = styled.li`
     width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
-}
-.icon_phone {
-    color: rgb(73, 136, 195);
-}
-.name_contacts {
+`;
+export const ContactsName = styled.p`
     font-size: 17px;
     font-weight: bold;
     color: rgb(73, 136, 195);
-}
-.number_contacts {
+`;
+export const ContactsNumber = styled.span`
     padding-left: 10px;
-}
-.button_contacts{
+`;
+export const Button = styled.button`
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -47,7 +37,6 @@ button{
     border-radius: 5px;
     font-size: 17px;
     font-weight: bold;
-}
-.icon_delete {
-    align-self: center;
-}
+`;
+
+

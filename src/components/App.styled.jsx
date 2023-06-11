@@ -1,4 +1,6 @@
-.section {
+import styled from "@emotion/styled";
+
+export const Section = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,12 +10,12 @@
     padding: 100px 15px;
     margin-left:  auto;
     margin-right: auto;
-}
-.title_phonebook {
+`;
+export const TitlePhonebook = styled.h1`
     font-size: 45px;
     color: rgb(73, 136, 195);
-}
-.contact_container {
+`;
+export const ContactContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -24,8 +26,8 @@
     0px 4px 4px rgba(46, 47, 66, 0.16),
     0px 4px 10px rgba(46, 47, 66, 0.08),
     0px 4px 10px rgba(46, 47, 66, 0.08);
-}
-.title_contact {
+`;
+export const TitleContact = styled.h1`
     font-size: 45px;
     color: rgb(73, 136, 195);
-}
+`;
