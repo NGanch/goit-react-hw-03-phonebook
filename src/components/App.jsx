@@ -9,6 +9,7 @@ import {Section, TitlePhonebook, ContactContainer, TitleContact} from './App.sty
 //  import shortid from "shortid";
 // model.id = nanoid()
 // let nameInBook = '';
+const CONTACT_KEY = 'contacts';
 export class App extends React.Component {
   state = {
     contacts: [
@@ -20,7 +21,21 @@ export class App extends React.Component {
     filter: '',
   };
   // nameInputId = shortid.generate();
-
+  //--------------- Add to localStorage coctact -----------------
+  componentDidMount() {
+    const contact = localStorage.getItem(CONTACT_KEY);
+    const parsedContacts = JSON.parse(contact);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+  //--------------- Add to localStorage coctact -----------------
+  componentDidUpdate(prevProps, prevState) {
+    const {contacts} = this.state;
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem(CONTACT_KEY, JSON.stringify(contacts));
+    }
+  }
   //---------------Додавання контакту-----------------
   formSubmitHandler = data => {
     const nameInBook = this.state.contacts.some(
@@ -55,20 +70,6 @@ export class App extends React.Component {
     );
   };
 
-  //--------------- Add to localStorage coctact -----------------
-  componentDidMount() {
-    const contact = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contact);
-    if (parsedContacts) {
-      this.setState({ contacts: parsedContacts });
-    }
-  }
-  //--------------- Add to localStorage coctact -----------------
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
 
   render() {
     const { filter } = this.state;
